@@ -1,0 +1,407 @@
+/* =========================================================================
+ * 民小松 · 校园手册问答助手 —— 悬浮气泡与对话面板
+ * 配色：墨绿原版（小松鼠保持原图）+ 米白衬托
+ * 尺寸：面板 380×560，手机端全屏
+ * ========================================================================= */
+
+/* ---------- 悬浮气泡 ---------- */
+.ms-fab {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 900;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid #1E6B4F;
+  background: #F2EFE8;
+  cursor: pointer;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .42), 0 0 0 7px rgba(30, 107, 79, .16);
+  transition: transform .3s cubic-bezier(.22, .61, .36, 1), box-shadow .3s cubic-bezier(.22, .61, .36, 1);
+  animation: ms-fab-in .5s cubic-bezier(.22, .61, .36, 1) both;
+}
+@keyframes ms-fab-in {
+  from { opacity: 0; transform: translateY(18px) scale(.8); }
+  to   { opacity: 1; transform: none; }
+}
+.ms-fab:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, .5), 0 0 0 9px rgba(30, 107, 79, .22);
+}
+.ms-fab:active { transform: scale(.97); }
+.ms-fab img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
+
+/* 未读提示点 */
+.ms-fab__dot {
+  position: absolute;
+  top: 1px; right: 1px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: #E8A33D;
+  border: 2px solid #0C1626;
+  animation: ms-pulse 2.4s ease-in-out infinite;
+}
+.ms-fab__dot.is-hidden { display: none; }
+@keyframes ms-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .4;  transform: scale(.82); }
+}
+
+/* 气泡旁的小提示条 */
+.ms-hint {
+  position: fixed;
+  right: 100px;
+  bottom: 40px;
+  z-index: 899;
+  max-width: 210px;
+  padding: 9px 13px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #1A2436;
+  background: #F2EFE8;
+  border: 1px solid rgba(30, 107, 79, .28);
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .34);
+  transition: opacity .35s, transform .35s;
+}
+.ms-hint::after {
+  content: '';
+  position: absolute;
+  right: -6px; bottom: 14px;
+  width: 10px; height: 10px;
+  background: #F2EFE8;
+  border-right: 1px solid rgba(30, 107, 79, .28);
+  border-bottom: 1px solid rgba(30, 107, 79, .28);
+  transform: rotate(-45deg);
+}
+.ms-hint.is-hidden { opacity: 0; transform: translateX(8px); pointer-events: none; }
+
+/* ---------- 对话面板 ---------- */
+.ms-panel {
+  position: fixed;
+  right: 24px;
+  bottom: 102px;
+  z-index: 901;
+  width: 380px;
+  height: 560px;
+  max-height: calc(100vh - 130px);
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #F7F5F0;
+  border: 1px solid rgba(30, 107, 79, .22);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, .55);
+  transform-origin: calc(100% - 32px) 100%;
+  transition: opacity .28s cubic-bezier(.22, .61, .36, 1), transform .28s cubic-bezier(.22, .61, .36, 1);
+}
+.ms-panel[hidden] { display: none; }
+.ms-panel.is-closing { opacity: 0; transform: translateY(14px) scale(.96); }
+
+/* 头部 */
+.ms-head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 15px;
+  background: linear-gradient(90deg, #1E6B4F 0%, #2E8B65 100%);
+  color: #fff;
+  flex: none;
+}
+.ms-head__ava {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex: none;
+  border: 2px solid rgba(255, 255, 255, .72);
+  background: #fff;
+}
+.ms-head__ava img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ms-head__who { flex: 1; min-width: 0; }
+.ms-head__who b {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+.ms-head__who small {
+  display: block;
+  font-size: 11.5px;
+  opacity: .85;
+  margin-top: 1px;
+}
+.ms-head__who small i {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #7BE0A8;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+.ms-head__x {
+  width: 29px; height: 29px;
+  border: 1px solid rgba(255, 255, 255, .38);
+  border-radius: 8px;
+  background: none;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .25s, border-color .25s;
+}
+.ms-head__x:hover { background: rgba(255, 255, 255, .16); border-color: rgba(255, 255, 255, .7); }
+
+/* 学校切换栏 */
+.ms-schools {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  padding: 10px 13px;
+  background: #EFECE4;
+  border-bottom: 1px solid rgba(30, 107, 79, .16);
+  flex: none;
+}
+.ms-school {
+  display: block;
+  text-align: left;
+  padding: 8px 11px;
+  border-radius: 10px;
+  border: 1px solid rgba(30, 107, 79, .24);
+  background: #fff;
+  cursor: pointer;
+  transition: background .24s, border-color .24s, box-shadow .24s;
+}
+.ms-school b {
+  display: block;
+  font-size: 12.6px;
+  font-weight: 600;
+  color: #5C7A6B;
+  letter-spacing: .01em;
+  transition: color .24s;
+}
+.ms-school small {
+  display: block;
+  font-size: 10.6px;
+  color: #8C9AB4;
+  margin-top: 2px;
+  transition: color .24s;
+}
+.ms-school:hover { border-color: #2E8B65; background: rgba(46, 139, 101, .07); }
+.ms-school.is-on {
+  background: #1E6B4F;
+  border-color: #1E6B4F;
+  box-shadow: 0 4px 12px rgba(30, 107, 79, .26);
+}
+.ms-school.is-on b { color: #fff; }
+.ms-school.is-on small { color: rgba(255, 255, 255, .78); }
+
+/* 消息区 */
+.ms-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  background: #F7F5F0;
+  scroll-behavior: smooth;
+}
+.ms-body::-webkit-scrollbar { width: 6px; }
+.ms-body::-webkit-scrollbar-track { background: transparent; }
+.ms-body::-webkit-scrollbar-thumb { background: rgba(30, 107, 79, .24); border-radius: 3px; }
+
+.ms-msg {
+  max-width: 89%;
+  font-size: 13.2px;
+  line-height: 1.75;
+  padding: 11px 13px;
+  border-radius: 13px;
+  color: #1A2436;
+  animation: ms-msg-in .32s cubic-bezier(.22, .61, .36, 1) both;
+}
+@keyframes ms-msg-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+.ms-msg--bot {
+  align-self: flex-start;
+  background: #fff;
+  border: 1px solid rgba(30, 107, 79, .16);
+  border-top-left-radius: 5px;
+}
+.ms-msg--user {
+  align-self: flex-end;
+  background: #1E6B4F;
+  color: #fff;
+  border-top-right-radius: 5px;
+}
+.ms-msg b, .ms-msg strong { color: #1E6B4F; font-weight: 600; }
+.ms-msg--user b { color: #fff; }
+
+/* 默认口径声明 */
+.ms-declare {
+  display: block;
+  font-size: 11.6px;
+  line-height: 1.65;
+  color: #5C7A6B;
+  background: rgba(30, 107, 79, .07);
+  border-left: 3px solid #2E8B65;
+  border-radius: 5px;
+  padding: 7px 10px;
+  margin-bottom: 9px;
+}
+
+/* 流程分点 */
+.ms-steps { margin: 8px 0 0; padding-left: 0; list-style: none; }
+.ms-steps li {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 6px;
+  font-size: 12.9px;
+}
+.ms-steps li::before {
+  content: '';
+  position: absolute;
+  left: 3px; top: .62em;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: #2E8B65;
+}
+.ms-steps li:last-child { margin-bottom: 0; }
+
+/* 依据标注 */
+.ms-src {
+  display: block;
+  margin-top: 10px;
+  padding-top: 9px;
+  font-size: 11.2px;
+  line-height: 1.6;
+  color: #5C7A6B;
+  border-top: 1px dashed rgba(30, 107, 79, .26);
+}
+.ms-src em { color: #1E6B4F; font-style: normal; font-weight: 500; }
+
+/* 操作按钮行 */
+.ms-acts { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 11px; }
+.ms-act {
+  font-size: 11.5px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(30, 107, 79, .32);
+  background: rgba(30, 107, 79, .07);
+  color: #1E6B4F;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .22s, color .22s, border-color .22s;
+}
+.ms-act:hover { background: #1E6B4F; border-color: #1E6B4F; color: #fff; }
+
+/* 快捷问法胶囊 */
+.ms-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 0 15px 11px;
+  flex: none;
+  background: #F7F5F0;
+}
+.ms-chip {
+  font-size: 11.5px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(30, 107, 79, .28);
+  background: #fff;
+  color: #1E6B4F;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .22s, color .22s;
+}
+.ms-chip:hover { background: #1E6B4F; color: #fff; }
+
+/* 输入区 */
+.ms-foot {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 13px;
+  border-top: 1px solid rgba(30, 107, 79, .16);
+  background: #EFECE4;
+  flex: none;
+}
+.ms-foot input {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 12.8px;
+  color: #1A2436;
+  background: #fff;
+  border: 1px solid rgba(30, 107, 79, .24);
+  border-radius: 10px;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color .25s, box-shadow .25s;
+}
+.ms-foot input:focus {
+  border-color: #2E8B65;
+  box-shadow: 0 0 0 3px rgba(46, 139, 101, .14);
+}
+.ms-foot input::placeholder { color: #8C9AB4; }
+.ms-foot__send {
+  width: 38px; height: 38px;
+  flex: none;
+  border: none;
+  border-radius: 10px;
+  background: #1E6B4F;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .25s, transform .2s;
+}
+.ms-foot__send:hover { background: #2E8B65; transform: scale(1.05); }
+.ms-foot__send:disabled { opacity: .5; cursor: default; transform: none; }
+
+/* 「输入中」三点动效 */
+.ms-typing { display: inline-flex; gap: 4px; align-items: center; }
+.ms-typing i {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #2E8B65;
+  animation: ms-typing 1.3s ease-in-out infinite;
+}
+.ms-typing i:nth-child(2) { animation-delay: .18s; }
+.ms-typing i:nth-child(3) { animation-delay: .36s; }
+@keyframes ms-typing {
+  0%, 60%, 100% { opacity: .28; transform: translateY(0); }
+  30%           { opacity: 1;   transform: translateY(-3px); }
+}
+
+/* ---------- 手机端：全屏 ---------- */
+@media (max-width: 560px) {
+  .ms-fab { right: 16px; bottom: 16px; width: 58px; height: 58px; }
+  .ms-hint { right: 84px; bottom: 30px; max-width: 168px; font-size: 12px; }
+  .ms-panel {
+    right: 0; bottom: 0;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    border: none;
+    transform-origin: center bottom;
+  }
+  .ms-body { padding: 14px 13px; }
+  .ms-msg { max-width: 94%; font-size: 13.5px; }
+}
+
+/* 尊重「减少动效」偏好 */
+@media (prefers-reduced-motion: reduce) {
+  .ms-fab, .ms-panel, .ms-msg { animation: none !important; transition: none !important; }
+  .ms-fab__dot, .ms-typing i { animation: none !important; }
+}

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+      data-title-zh="潘宇航 | 暮色列车"
+      data-title-en="Pan Yuhang | Night Train"
+      data-desc-zh="潘宇航的个人网站。云南建水 → 武汉 → 华中科技大学交换，一个正在往金融业走的学生的故事。"
+      data-desc-en="Pan Yuhang's personal site. Jianshui, Yunnan → Wuhan → an exchange year at HUST — the story of a student heading into finance.">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>潘宇航 | 暮色列车</title>
+<meta name="description" content="潘宇航的个人网站。云南建水 → 武汉 → 华中科技大学交换，一个正在往金融业走的学生的故事。">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+
+<header class="site-header">
+  <div class="wrap nav-bar">
+    <a class="brand" href="index.html">
+      <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="1.2" y="7" width="21.6" height="10" rx="2.4" stroke="#E8A33D" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="2.6" stroke="#E8A33D" stroke-width="1.5"/>
+        <path d="M4.6 12h2M17.4 12h2" stroke="#E8A33D" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span><span data-zh="潘宇航" data-en="Pan Yuhang">潘宇航</span><small>NIGHT TRAIN</small></span>
+    </a>
+    <nav class="site-nav" aria-label="主导航">
+      <a class="is-current" href="index.html" data-zh="出发" data-en="Departure">出发</a>
+      <a href="journey.html" data-zh="旅程" data-en="Journey">旅程</a>
+      <a href="pack.html" data-zh="行囊与作品" data-en="Pack &amp; Work">行囊与作品</a>
+      <a href="next.html" data-zh="下一站" data-en="Next stop">下一站</a>
+    </nav>
+    <div class="nav-tools">
+      <button class="lang" id="langBtn" type="button" data-lang="zh" aria-label="Switch to English">
+        <i class="lang__dot"></i><span id="langLabel">EN</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a class="is-current" href="index.html" data-zh="出发" data-en="Departure">出发</a>
+  <a href="journey.html" data-zh="旅程" data-en="Journey">旅程</a>
+  <a href="pack.html" data-zh="行囊与作品" data-en="Pack &amp; Work">行囊与作品</a>
+  <a href="next.html" data-zh="下一站" data-en="Next stop">下一站</a>
+</div>
+
+<!-- ==================== 首屏：暮色列车（滚动驱动） ==================== -->
+<section class="train-stage" id="trainStage">
+  <div class="train-viewport">
+
+    <div class="scene" aria-hidden="true">
+      <div class="sky"></div>
+      <svg class="stars" id="stars" viewBox="0 0 100 60" preserveAspectRatio="none"></svg>
+      <div class="moon"></div>
+
+      <svg class="ridge ridge--far" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 168 L96 106 L188 152 L286 84 L392 138 L486 66 L588 126 L690 78 L796 134 L900 88 L1006 142 L1108 96 L1214 148 L1322 108 L1440 156 L1440 220 L0 220 Z" fill="#1B2A44"/>
+      </svg>
+      <svg class="ridge ridge--near" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 150 L120 96 L232 136 L344 74 L452 122 L560 62 L668 116 L776 72 L884 124 L992 80 L1100 128 L1208 86 L1316 134 L1440 100 L1440 200 L0 200 Z" fill="#101B2E"/>
+        <g fill="#0A1424">
+          <circle cx="86" cy="118" r="54"/><circle cx="176" cy="146" r="40"/>
+          <circle cx="1292" cy="116" r="58"/><circle cx="1396" cy="150" r="44"/><circle cx="1198" cy="152" r="34"/>
+        </g>
+      </svg>
+
+      <div class="railtie"></div>
+      <div class="railline"></div>
+      <div class="ground"></div>
+    </div>
+
+    <div class="stations" aria-hidden="true">
+      <div class="station" style="left:12%">
+        <span class="station__year" data-zh="2025 以前" data-en="Before 2025">2025 以前</span>
+        <span class="station__label" data-zh="云南建水 · 起点" data-en="Jianshui · Start">云南建水 · 起点</span>
+        <span class="station__post"></span>
+        <span class="station__dot"></span>
+      </div>
+      <div class="station" style="left:37%">
+        <span class="station__year">2025.09</span>
+        <span class="station__label" data-zh="武汉 · 中南民族大学" data-en="Wuhan · SC Minzu Univ.">武汉 · 中南民族大学</span>
+        <span class="station__post"></span>
+        <span class="station__dot"></span>
+      </div>
+      <div class="station" style="left:62%">
+        <span class="station__year">2026.09</span>
+        <span class="station__label" data-zh="华中科技大学 · 交换" data-en="HUST · Exchange">华中科技大学 · 交换</span>
+        <span class="station__post"></span>
+        <span class="station__dot"></span>
+      </div>
+      <div class="station" style="left:87%">
+        <span class="station__year" data-zh="2027 以后" data-en="After 2027">2027 以后</span>
+        <span class="station__label" data-zh="下一站 · 还没命名" data-en="Next stop · unnamed">下一站 · 还没命名</span>
+        <span class="station__post"></span>
+        <span class="station__dot"></span>
+      </div>
+    </div>
+
+    <div class="train" id="train" aria-hidden="true">
+      <div class="smoke"><i></i><i></i><i></i></div>
+      <svg viewBox="0 0 200 70">
+        <g fill="#2A3F5E" stroke="#42618C" stroke-width="1">
+          <rect x="136" y="27" width="58" height="24" rx="4"/>
+          <rect x="68" y="27" width="62" height="24" rx="4"/>
+          <rect x="8" y="27" width="54" height="24" rx="4"/>
+          <rect x="34" y="15" width="25" height="12" rx="2"/>
+          <rect x="12" y="13" width="9" height="14" rx="2"/>
+        </g>
+        <g stroke="#42618C" stroke-width="1"><path d="M62 39h6M130 39h6"/></g>
+        <g fill="#E8A33D">
+          <rect x="17" y="32" width="9" height="8" rx="1.4"/>
+          <rect x="30" y="32" width="9" height="8" rx="1.4"/>
+          <rect x="43" y="32" width="9" height="8" rx="1.4"/>
+          <rect x="76" y="32" width="10" height="8" rx="1.4"/>
+          <rect x="92" y="32" width="10" height="8" rx="1.4"/>
+          <rect x="108" y="32" width="10" height="8" rx="1.4"/>
+          <rect x="144" y="32" width="10" height="8" rx="1.4"/>
+          <rect x="160" y="32" width="10" height="8" rx="1.4"/>
+          <rect x="176" y="32" width="10" height="8" rx="1.4"/>
+        </g>
+        <circle cx="9" cy="45" r="2.6" fill="#F2C97D"/>
+        <g fill="#0F1B2E" stroke="#3E5B82" stroke-width="1">
+          <circle cx="19" cy="55" r="5.4"/><circle cx="44" cy="55" r="5.4"/>
+          <circle cx="79" cy="55" r="5.4"/><circle cx="119" cy="55" r="5.4"/>
+          <circle cx="147" cy="55" r="5.4"/><circle cx="185" cy="55" r="5.4"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-copy" id="heroCopy">
+      <p class="hero-kicker fade" style="--d:.05s">A STUDENT ON THE NIGHT TRAIN</p>
+      <h1 class="hero-name fade" style="--d:.16s"><span data-zh="潘宇航" data-en="Pan Yuhang">潘宇航</span></h1>
+      <p class="hero-tag fade" style="--d:.28s" data-zh="日拱一卒，功不唐捐。" data-en="A pawn advances one square a day — no effort is ever wasted.">日拱一卒，功不唐捐。</p>
+      <p class="hero-meta fade" style="--d:.38s" data-zh="云南建水 → 武汉 · 中南民族大学 金融学 2025 级 · 现在华中科技大学交换" data-en="Jianshui, Yunnan → Wuhan · Finance, South-Central Minzu University · now on exchange at HUST">云南建水 → 武汉 · 中南民族大学 金融学 2025 级 · 现在华中科技大学交换</p>
+      <div class="hero-actions fade" style="--d:.48s">
+        <a class="btn btn-solid" href="journey.html" data-zh="看看我这一路怎么走的" data-en="How I got here">看看我这一路怎么走的</a>
+        <a class="btn btn-ghost" href="pack.html" data-zh="我手里有什么" data-en="What I'm carrying">我手里有什么</a>
+      </div>
+    </div>
+
+    <div class="station-panel is-on">
+      <p class="station-panel__no">STOP 01</p>
+      <h2 data-zh="云南建水" data-en="Jianshui, Yunnan">云南建水</h2>
+      <p data-zh="路是从这里开始的。在建水实验中学读完高中，之后到云南驰麟通讯设备有限公司做了一段通讯业务员——那是我第一次发现，把一件事讲清楚，比把一道题算对更难。"
+         data-en="This is where the line starts. I finished high school at Jianshui Experimental Middle School, then spent a stretch as a communications salesperson at Yunnan Chilin Communication Equipment — the first time I realised that explaining something clearly is harder than getting the answer right.">路是从这里开始的。在建水实验中学读完高中，之后到云南驰麟通讯设备有限公司做了一段通讯业务员——那是我第一次发现，把一件事讲清楚，比把一道题算对更难。</p>
+    </div>
+    <div class="station-panel">
+      <p class="station-panel__no">STOP 02</p>
+      <h2 data-zh="武汉 · 中南民族大学" data-en="Wuhan · South-Central Minzu University">武汉 · 中南民族大学</h2>
+      <p data-zh="2025 年 9 月入学，金融学。修完高等数学、微观经济学这些基础课，通过了大学英语四级，也第一次把 Excel 用成了真正的工具。"
+         data-en="Enrolled in September 2025 to study finance. Finished the foundational courses — advanced mathematics, microeconomics — passed CET-4, and for the first time used Excel as a real tool rather than a homework format.">2025 年 9 月入学，金融学。修完高等数学、微观经济学这些基础课，通过了大学英语四级，也第一次把 Excel 用成了真正的工具。</p>
+    </div>
+    <div class="station-panel">
+      <p class="station-panel__no">STOP 03</p>
+      <h2 data-zh="华中科技大学 · 交换" data-en="HUST · Exchange year">华中科技大学 · 交换</h2>
+      <p data-zh="2026 年 9 月起交换学习一年。换一个坐标系看自己的专业，同时把英语六级、Python、SQL 一起往前推。"
+         data-en="A one-year exchange starting September 2026. A different coordinate system for my own major, while pushing CET-6, Python and SQL forward at the same time.">2026 年 9 月起交换学习一年。换一个坐标系看自己的专业，同时把英语六级、Python、SQL 一起往前推。</p>
+    </div>
+    <div class="station-panel">
+      <p class="station-panel__no">STOP 04</p>
+      <h2 data-zh="下一站，还没命名" data-en="The next stop has no name yet">下一站，还没命名</h2>
+      <p data-zh="方向是明确的：银行业与证券业。考从业资格、找实习、把工具练熟——剩下的交给时间。"
+         data-en="The direction is clear: banking and securities. Earn the qualifications, find an internship, get the tools sharp — the rest is time's job.">方向是明确的：银行业与证券业。考从业资格、找实习、把工具练熟——剩下的交给时间。</p>
+    </div>
+
+    <p class="scroll-hint" id="scrollHint" data-zh="滚动，让车往前走" data-en="Scroll to move the train">滚动，让车往前走<i></i></p>
+    <div class="train-progress" aria-hidden="true"><i id="trainBar"></i></div>
+  </div>
+</section>
+
+<!-- ==================== 我是谁 ==================== -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="sec-kicker">01 · About</p>
+      <h2 class="sec-title" data-zh="先说说<em>我是谁</em>" data-en="First, <em>who I am</em>">先说说<em>我是谁</em></h2>
+      <p class="sec-note" data-zh="这不是一张简历，是一条正在延伸的线。" data-en="This is not a résumé. It is a line still being extended.">这不是一张简历，是一条正在延伸的线。</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-col">
+        <div class="card photo-card reveal reveal--left">
+          <img src="assets/avatar.jpg" alt="潘宇航的个人照片" data-alt-zh="潘宇航的个人照片" data-alt-en="Portrait of Pan Yuhang">
+        </div>
+        <div class="card reveal reveal--left" style="transition-delay:.1s">
+          <div class="facts">
+            <div class="facts__row">
+              <i><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg></i>
+              <div>
+                <b data-zh="潘宇航" data-en="Pan Yuhang">潘宇航</b>
+                <span data-zh="金融学 · 大二在读" data-en="Finance · second year">金融学 · 大二在读</span>
+              </div>
+            </div>
+            <div class="facts__row">
+              <i><svg viewBox="0 0 24 24"><path d="M4 4h7v16H4z"/><path d="M13 4h7v16h-7z"/></svg></i>
+              <div>
+                <b data-zh="云南建水实验中学" data-en="Jianshui Experimental Middle School">云南建水实验中学</b>
+                <span data-zh="高中 · 云南" data-en="High school · Yunnan">高中 · 云南</span>
+              </div>
+            </div>
+            <div class="facts__row">
+              <i><svg viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5ZM4 10v6c0 2 3.6 4 8 4s8-2 8-4v-6"/></svg></i>
+              <div>
+                <b data-zh="中南民族大学" data-en="South-Central Minzu University">中南民族大学</b>
+                <span data-zh="金融学 · 2025.09 入学" data-en="Finance · enrolled Sep 2025">金融学 · 2025.09 入学</span>
+              </div>
+            </div>
+            <div class="facts__row">
+              <i><svg viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></i>
+              <div>
+                <b data-zh="华中科技大学" data-en="Huazhong Univ. of Science and Technology">华中科技大学</b>
+                <span data-zh="交换学习 · 2026.09–2027.06" data-en="Exchange year · Sep 2026 – Jun 2027">交换学习 · 2026.09–2027.06</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-col">
+        <div class="card card--hover reveal reveal--right">
+          <p style="color:var(--dust);font-size:15px"
+             data-zh="我是潘宇航，中南民族大学金融学专业大二学生，目前正在华中科技大学交换学习一年。金融是我坚定选择的道路，我对银行业与证券业抱有明确的职业兴趣，希望在大学阶段打好专业基础、积累实践经验，成长为一名专业、可靠、有温度的金融从业者。"
+             data-en="I'm Pan Yuhang, a second-year finance student at South-Central Minzu University, currently spending a full year on exchange at Huazhong University of Science and Technology. Finance is a path I chose deliberately. I have a clear professional interest in banking and securities, and I want to use my undergraduate years to build real foundations and real experience — and grow into a finance professional who is competent, dependable and human.">我是潘宇航，中南民族大学金融学专业大二学生，目前正在华中科技大学交换学习一年。金融是我坚定选择的道路，我对银行业与证券业抱有明确的职业兴趣，希望在大学阶段打好专业基础、积累实践经验，成长为一名专业、可靠、有温度的金融从业者。</p>
+          <p style="color:var(--dust);font-size:15px;margin-top:16px"
+             data-zh="课堂之外，我曾在云南驰麟通讯设备有限公司担任通讯业务员，锻炼了沟通表达与客户服务能力；学习中我熟练掌握 Excel 数据分析，已通过大学英语四级、正在备考六级，并计划深入学习 Python 与 SQL。"
+             data-en="Outside the classroom I worked as a communications salesperson at Yunnan Chilin Communication Equipment, which sharpened how I communicate and how I serve clients. I'm proficient with Excel for data analysis, have passed CET-4, am preparing for CET-6, and plan to go deeper into Python and SQL.">课堂之外，我曾在云南驰麟通讯设备有限公司担任通讯业务员，锻炼了沟通表达与客户服务能力；学习中我熟练掌握 Excel 数据分析，已通过大学英语四级、正在备考六级，并计划深入学习 Python 与 SQL。</p>
+          <div class="quote-line" data-zh="日拱一卒，功不唐捐。" data-en="A pawn advances one square a day. No effort is ever wasted.">日拱一卒，功不唐捐。</div>
+          <div class="tag-row" style="margin-top:22px">
+            <span class="tag" style="font-size:13px;padding:7px 15px" data-zh="银行业" data-en="Banking">银行业</span>
+            <span class="tag" style="font-size:13px;padding:7px 15px" data-zh="证券业" data-en="Securities">证券业</span>
+            <span class="tag" style="font-size:13px;padding:7px 15px" data-zh="数据分析" data-en="Data analysis">数据分析</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:58px">
+      <div class="sec-head reveal" style="margin-bottom:30px">
+        <p class="sec-kicker">01.1 · Why finance</p>
+        <h2 class="sec-title" style="font-size:clamp(22px,3.2vw,30px)" data-zh="我为什么选<em>金融</em>" data-en="Why I chose <em>finance</em>">我为什么选<em>金融</em></h2>
+        <p class="sec-note" data-zh="不是一时冲动，是四条自己算得清的理由。" data-en="Not a whim — four reasons I could actually price out.">不是一时冲动，是四条自己算得清的理由。</p>
+      </div>
+      <div class="door-grid" data-stagger>
+        <div class="door reveal">
+          <span class="door__no">01</span>
+          <h3 data-zh="实习机会多" data-en="Plenty of internships">实习机会多</h3>
+          <p data-zh="银行、券商、基金、咨询、互联网、企业财务都有口子。大二就能开始接触，不用等到毕业才第一次上手。"
+             data-en="Banks, brokerages, funds, consulting, tech, corporate finance — there are openings in all of them. You can start touching real work in year two instead of waiting until graduation.">银行、券商、基金、咨询、互联网、企业财务都有口子。大二就能开始接触，不用等到毕业才第一次上手。</p>
+        </div>
+        <div class="door reveal">
+          <span class="door__no">02</span>
+          <h3 data-zh="就业面宽" data-en="A wide job market">就业面宽</h3>
+          <p data-zh="金融机构、监管、考公都走得通；往外转，咨询、审计、财务、战略、数据分析也接得上。"
+             data-en="Financial institutions, regulators, civil service — all viable. It also pivots outward into consulting, audit, corporate finance, strategy and data analysis.">金融机构、监管、考公都走得通；往外转，咨询、审计、财务、战略、数据分析也接得上。</p>
+        </div>
+        <div class="door reveal">
+          <span class="door__no">03</span>
+          <h3 data-zh="升学方向多" data-en="Many graduate paths">升学方向多</h3>
+          <p data-zh="金融、金融工程、商业分析、经济、会计、管理、数据科学——想继续读，路不止一条。"
+             data-en="Finance, financial engineering, business analytics, economics, accounting, management, data science — if I want to keep studying, there is more than one road.">金融、金融工程、商业分析、经济、会计、管理、数据科学——想继续读，路不止一条。</p>
+        </div>
+        <div class="door reveal">
+          <span class="door__no">04</span>
+          <h3 data-zh="更早懂钱" data-en="Understanding money earlier">更早懂钱</h3>
+          <p data-zh="利率、通胀、投资、理财、资产配置。这些事早点弄明白，对自己做事和看懂一家公司都有用。"
+             data-en="Interest rates, inflation, investing, asset allocation. Learning these early helps whether I'm building something myself or just trying to read a company properly.">利率、通胀、投资、理财、资产配置。这些事早点弄明白，对自己做事和看懂一家公司都有用。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:54px">
+      <div class="sec-head reveal" style="margin-bottom:30px">
+        <p class="sec-kicker">01.2 · Off duty</p>
+        <h2 class="sec-title" style="font-size:clamp(22px,3.2vw,30px)" data-zh="不上课的<em>时候</em>" data-en="<em>After</em> class">不上课的<em>时候</em></h2>
+        <p class="sec-note" data-zh="一直讲金融会把人讲成一个符号。所以这一段也得留出来。" data-en="Talk about finance long enough and a person turns into a symbol. So this part needs its own space.">一直讲金融会把人讲成一个符号。所以这一段也得留出来。</p>
+      </div>
+      <div class="door-grid" data-stagger>
+        <div class="door reveal">
+          <span class="door__no">01</span>
+          <h3 data-zh="篮球" data-en="Basketball">篮球</h3>
+          <p data-zh="有空就去打。喜欢那种必须一直盯着球、顾不上想别的状态。"
+             data-en="I play whenever I can. I like the state where your eyes have to stay on the ball and there's no room left to think about anything else.">有空就去打。喜欢那种必须一直盯着球、顾不上想别的状态。</p>
+        </div>
+        <div class="door reveal">
+          <span class="door__no">02</span>
+          <h3 data-zh="看剧" data-en="TV shows">看剧</h3>
+          <p data-zh="什么都看。追剧是我给自己留的、不用动脑子的那一块时间。"
+             data-en="Anything, really. Binge-watching is the one block of time I deliberately keep brain-free.">什么都看。追剧是我给自己留的、不用动脑子的那一块时间。</p>
+        </div>
+        <div class="door reveal">
+          <span class="door__no">03</span>
+          <h3 data-zh="美剧 + 口语" data-en="US shows + speaking">美剧 + 口语</h3>
+          <p data-zh="一边看美剧一边跟着练口语，顺带背单词。这是我在英语六级上找到的、不那么痛苦的笨办法。"
+             data-en="I watch American shows and shadow the dialogue, picking up vocabulary along the way. It's my low-pain, slightly dumb method for getting through CET-6.">一边看美剧一边跟着练口语，顺带背单词。这是我在英语六级上找到的、不那么痛苦的笨办法。</p>
+        </div>
+        <a class="door reveal" href="journey.html#along">
+          <span class="door__no">04</span>
+          <h3 data-zh="旅行" data-en="Travelling">旅行</h3>
+          <p data-zh="高考一结束去了川西，大一读完去了香格里拉，中间还和家人一起走过昆明。照片都在「旅程」那一页。"
+             data-en="Western Sichuan right after the gaokao, Shangri-La after my first year, and a stretch in Kunming with my family in between. The photos are on the Journey page.">高考一结束去了川西，大一读完去了香格里拉，中间还和家人一起走过昆明。照片都在「旅程」那一页。</p>
+          <span class="door__go"><span data-zh="看图" data-en="See the photos">看图</span> <span>→</span></span>
+        </a>
+      </div>
+
+      <div class="ticket reveal" style="margin-top:24px;max-width:780px">
+        <b data-zh="这几张卡还很薄" data-en="These cards are still thin">这几张卡还很薄</b>
+        <p data-zh="我只写了你给的几个词。你要是想补充——打过什么比赛、最近在追哪部、有没有特别喜欢的片子——给我几个具体的名字，这几张卡立刻就有了人味。"
+           data-en="I only wrote the words you gave me. If you want to fill them in — what competitions you played, what you're watching now, a favourite film — send me a few specific names and they'll come alive.">我只写了你给的几个词。你要是想补充——打过什么比赛、最近在追哪部、有没有特别喜欢的片子——给我几个具体的名字，这几张卡立刻就有了人味。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 关键词云 ==================== -->
+<section class="section section--alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="sec-kicker">02 · Keywords</p>
+      <h2 class="sec-title" data-zh="我的<em>关键词</em>" data-en="My <em>keywords</em>">我的<em>关键词</em></h2>
+      <p class="sec-note" data-zh="把光标停在词上（手机点一下），看它对我具体意味着什么。" data-en="Hover a word — or tap it on a phone — to see what it actually means to me.">把光标停在词上（手机点一下），看它对我具体意味着什么。</p>
+    </div>
+
+    <div class="kw-cloud reveal" data-stagger>
+      <button class="kw reveal" type="button"
+        data-tip-zh="金融是我在文科能选的专业里，最务实的那个。我想让数字和模型真的解决点问题，而不是停在纸上。"
+        data-tip-en="Finance was the most practical option open to me. I want numbers and models to actually solve something, not just sit on paper."
+        data-tip="金融是我在文科能选的专业里，最务实的那个。我想让数字和模型真的解决点问题，而不是停在纸上。"><span data-zh="数字" data-en="Numbers">数字</span><small>Numbers</small></button>
+      <button class="kw reveal" type="button"
+        data-tip-zh="在云南驰麟那两个月的通讯业务员，让我学到一件事：把产品讲成客户听得懂的话，比把公式背对难多了。交流能力和跟人配合的能力，都是在柜台前练出来的。"
+        data-tip-en="Two months as a communications salesperson at Chilin taught me something: explaining a product in words the customer understands is much harder than reciting a formula. Both my communication and my teamwork were built at that counter."
+        data-tip="在云南驰麟那两个月的通讯业务员，让我学到一件事：把产品讲成客户听得懂的话，比把公式背对难多了。交流能力和跟人配合的能力，都是在柜台前练出来的。"><span data-zh="沟通" data-en="Communication">沟通</span><small>Communication</small></button>
+      <button class="kw reveal" type="button"
+        data-tip-zh="选专业的时候我不看它热不热，只看它能不能落地、路够不够宽。这四条理由帮我排掉了不少选项。"
+        data-tip-en="When I picked a major I didn't look at whether it was hot — I looked at whether it lands on the ground and how many roads it opens. Those four reasons ruled out a lot of options."
+        data-tip="选专业的时候我不看它热不热，只看它能不能落地、路够不够宽。这四条理由帮我排掉了不少选项。"><span data-zh="务实" data-en="Practical">务实</span><small>Practical</small></button>
+      <button class="kw reveal" type="button"
+        data-tip-zh="座右铭是「日拱一卒，功不唐捐」。不指望一次跳得很高，指望每天都往前挪一点。"
+        data-tip-en="My motto is a pawn advances one square a day. I don't expect one big leap — I expect to move a little forward every day."
+        data-tip="座右铭是「日拱一卒，功不唐捐」。不指望一次跳得很高，指望每天都往前挪一点。"><span data-zh="长期主义" data-en="Long-term">长期主义</span><small>Long-term</small></button>
+      <button class="kw reveal" type="button"
+        data-tip-zh="明确的方向之一。想去看看信贷和风控在真实的银行里到底是怎么运转的。"
+        data-tip-en="One of my two clear directions. I want to see how credit and risk control actually work inside a real bank."
+        data-tip="明确的方向之一。想去看看信贷和风控在真实的银行里到底是怎么运转的。"><span data-zh="银行" data-en="Banking">银行</span><small>Banking</small></button>
+      <button class="kw reveal" type="button"
+        data-tip-zh="另一个明确的方向。想弄明白市场是怎么给一家公司定价的——这件事光看书不够。"
+        data-tip-en="My other clear direction. I want to understand how the market prices a company — and that isn't something you get from books alone."
+        data-tip="另一个明确的方向。想弄明白市场是怎么给一家公司定价的——这件事光看书不够。"><span data-zh="证券" data-en="Securities">证券</span><small>Securities</small></button>
+      <button class="kw reveal" type="button"
+        data-tip-zh="目前最趁手的工具。从整理数据、做透视表到搭简单的测算模型，都能自己跑完。"
+        data-tip-en="My most well-worn tool right now. From cleaning data and building pivot tables to putting together a simple valuation model, I can run it end to end."
+        data-tip="目前最趁手的工具。从整理数据、做透视表到搭简单的测算模型，都能自己跑完。"><span data-zh="Excel" data-en="Data analysis">Excel</span><small>Data</small></button>
+      <button class="kw reveal" type="button"
+        data-tip-zh="从云南建水到武汉，再到华中科技大学交换。这两年我一直在换坐标——换坐标这件事，比想象中更塑造人。"
+        data-tip-en="From Jianshui to Wuhan, then to an exchange year at HUST. I've been changing coordinates for two years — and that shapes a person more than you'd expect."
+        data-tip="从云南建水到武汉，再到华中科技大学交换。这两年我一直在换坐标——换坐标这件事，比想象中更塑造人。"><span data-zh="在路上" data-en="On the road">在路上</span><small>On the road</small></button>
+    </div>
+
+    <div class="ticket reveal" style="margin-top:34px;max-width:720px">
+      <b data-zh="这八个词和注解是我拟的" data-en="I picked these eight words">这八个词和注解是我拟的</b>
+      <p data-zh="你资料里没有这么细的东西，所以词是我挑的、注解是我写的。你看着改——删掉不认的，换上自己真正想的。这一块最需要是你的原话。"
+         data-en="Your material didn't cover anything this granular, so I chose the words and wrote the notes. Look them over — delete what doesn't fit, replace it with what's actually yours. This block needs your own words more than any other.">你资料里没有这么细的东西，所以词是我挑的、注解是我写的。你看着改——删掉不认的，换上自己真正想的。这一块最需要是你的原话。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 往里走 ==================== -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="sec-kicker">Next</p>
+      <h2 class="sec-title" data-zh="往<em>里走</em>" data-en="Go <em>deeper</em>">往<em>里走</em></h2>
+      <p class="sec-note" data-zh="这个站点是一条线：我从哪里来 → 我经历了什么 → 我手里有什么 → 我要去哪里。" data-en="This site is one line: where I come from → what I've been through → what I'm carrying → where I'm going.">这个站点是一条线：我从哪里来 → 我经历了什么 → 我手里有什么 → 我要去哪里。</p>
+    </div>
+
+    <div class="door-grid" data-stagger>
+      <a class="door reveal" href="journey.html">
+        <span class="door__no">01</span>
+        <h3 data-zh="旅程" data-en="The journey">旅程</h3>
+        <p data-zh="建水的高中、武汉的大学、华中科技大学的交换。三所学校、一段两个月的企业实践，还有四张路上的照片。"
+           data-en="High school in Jianshui, university in Wuhan, an exchange year at HUST. Three schools, a two-month stint at a company, and four photos from the road.">建水的高中、武汉的大学、华中科技大学的交换。三所学校、一段两个月的企业实践，还有四张路上的照片。</p>
+        <span class="door__go"><span data-zh="进入" data-en="Enter">进入</span> <span>→</span></span>
+      </a>
+      <a class="door reveal" href="pack.html">
+        <span class="door__no">02</span>
+        <h3 data-zh="行囊与作品" data-en="Pack &amp; work">行囊与作品</h3>
+        <p data-zh="Excel、英语、Python、SQL，还有正在补的作品。我手里现在有什么，缺什么，都摊开写。"
+           data-en="Excel, English, Python, SQL — and the work I'm still building. What I have and what I'm missing, laid out plainly.">Excel、英语、Python、SQL，还有正在补的作品。我手里现在有什么，缺什么，都摊开写。</p>
+        <span class="door__go"><span data-zh="进入" data-en="Enter">进入</span> <span>→</span></span>
+      </a>
+      <a class="door reveal" href="next.html">
+        <span class="door__no">03</span>
+        <h3 data-zh="下一站" data-en="Next stop">下一站</h3>
+        <p data-zh="关于未来我还没有标准答案，但方向是明确的：银行业与证券业。怎么找到我，也在这里。"
+           data-en="I don't have a tidy answer about the future, but the direction is clear: banking and securities. How to reach me is here too.">关于未来我还没有标准答案，但方向是明确的：银行业与证券业。怎么找到我，也在这里。</p>
+        <span class="door__go"><span data-zh="进入" data-en="Enter">进入</span> <span>→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-in">
+    <p class="footer-end" data-zh="路还很长。TO BE CONTINUED." data-en="The road is long. TO BE CONTINUED.">路还很长。TO BE CONTINUED.</p>
+    <p class="footer-meta" data-zh="© 2026 潘宇航 · 中南民族大学金融学 2025 级 · 本站由 HTML / CSS / JavaScript 亲手搭建"
+       data-en="© 2026 Pan Yuhang · Finance, South-Central Minzu University · Built by hand with HTML / CSS / JavaScript">© 2026 潘宇航 · 中南民族大学金融学 2025 级 · 本站由 HTML / CSS / JavaScript 亲手搭建</p>
+  </div>
+</footer>
+
+<button class="bgm-fab" id="bgmFab" aria-label="背景音乐">
+  <span class="pulse"></span>♪
+</button>
+<div class="bgm-panel" id="bgmPanel">
+  <h5>Background music</h5>
+  <p class="bgm-title" data-zh="《暮色列车》" data-en="Night Train">《暮色列车》</p>
+  <p class="bgm-desc" data-zh="为这个站点专门生成的一段舒缓环境音：F 大调、56 BPM，软垫和声加稀疏钟琴，混了一点车厢底噪和铁轨的律动。68 秒无缝循环，可以一直放着。"
+     data-en="A calm ambient piece written for this site: F major, 56 BPM, soft pad chords with sparse bell tones, plus a little carriage room-tone and the pulse of rails. 68 seconds, seamless loop.">为这个站点专门生成的一段舒缓环境音：F 大调、56 BPM，软垫和声加稀疏钟琴，混了一点车厢底噪和铁轨的律动。68 秒无缝循环，可以一直放着。</p>
+  <audio id="bgmAudio" controls loop preload="none" src="assets/bgm.mp3"></audio>
+</div>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="main.js"></script>
+<!-- ===== 民小松 · 校园手册问答助手（悬浮气泡） ===== -->
+<link rel="stylesheet" href="minsongsong.css">
+<script>
+  window.MINSONGSONG_CONFIG = {
+    school:   'scuec',                          // 默认口径：scuec=中南民族大学, hust=华中科技大学
+    avatar:   'assets/minsongsong.jpg',
+    hint:     '我是民小松，学生手册的事问我～'
+  };
+</script>
+<script src="minsongsong-kb.js"></script>
+<script src="minsongsong-kb-hust.js"></script>
+<script src="minsongsong.js"></script>
+</body>
+</html>
